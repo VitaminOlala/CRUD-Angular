@@ -17,11 +17,15 @@ export class AddEditProductComponent implements OnInit, OnChanges{
   modalType = "";
 
   productForm = this.fb.group({
-    title: ["", Validators.required],
-    price: [0, Validators.required],
-    description: [""],
-    category: ["", Validators.required],
-    image: ["", Validators.required]
+    // title: ["", Validators.required],
+    // price: [0, Validators.required],
+    // description: [""],
+    // category: ["", Validators.required],
+    // image: ["", Validators.required]
+
+    username: ["", Validators.required],
+    password: [0, Validators.required],
+    email: ["", Validators.required]
 
   });
   constructor(private fb: FormBuilder, private productService: ProductService,

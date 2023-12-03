@@ -11,19 +11,19 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>('https://fakestoreapi.com/products?sort=desc');
+    // return this.http.get<Product[]>('https://fakestoreapi.com/products?sort=desc');
+    return this.http.get<Product[]>('http://localhost:8080/account/users/getAll');
   }
   
   addEditProduct(postData: any, selectedPdt: any){
     if(!selectedPdt){
-      return this.http.post('https://fakestoreapi.com/products', postData);
+      return this.http.post('http://localhost:8080/account/users/add', postData);
     } else {
-      return this.http.put(`https://fakestoreapi.com/products/${selectedPdt.id}`, postData);
+      return this.http.put(`http://localhost:8080/account/users/edit/${selectedPdt.id}`, postData);
     }
-    
   }
 
   deleteProduct(productId: number){
-    return this.http.delete(`https://fakestoreapi.com/products/${productId}`)
+    return this.http.delete(`http://localhost:8080/account/users/${productId}`)
 }
 }

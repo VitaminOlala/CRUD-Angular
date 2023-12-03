@@ -1,14 +1,27 @@
 export interface Product {
+    // id: number;
+    // title: string;
+    // price: number;
+    // description: string;
+    // category: string;
+    // image: string;
+    // rating: RatingProps;
     id: number;
-    title: string;
-    price: number;
-    description: string;
-    category: string;
-    image: string;
-    rating: RatingProps;
+    username: string;
+    password: string;
+    email: string;
+    phone: string;
+    address: string;
+    dob: string;
+    lastChangePassword: string;
+    roles: Roles[];
 }
 
 interface RatingProps{
     rate: number;
     count: number;
+}
+
+export interface Roles{
+    name: string;
 }

@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ProductService } from './product.service';
-import { Product } from './product';
+import { Product, Roles } from './product';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Subscription } from 'rxjs';
 
@@ -18,6 +18,8 @@ export class ProductComponent implements OnInit, OnDestroy{
   subscriptions: Subscription[] = [];
   //individual subscriptions
   pdtSubscription: Subscription = new Subscription();
+
+  roles: Roles[] = [];
 
   constructor(private productService: ProductService,
     private confirmationService: ConfirmationService,

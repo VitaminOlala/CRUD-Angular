@@ -1,26 +1,48 @@
 <div class="flex justify-content-between">
     <h2>Products</h2>
-    <p-button label="Add Product" (click)="showAddModal()"></p-button>
+    <p-button label="Add user" (click)="showAddModal()"></p-button>
 </div>
 <p-table [value]="products" [paginator]="true" [rows]="5">
     <ng-template pTemplate="header">
         <tr>
-            <th>Title</th>
+            <!-- <th>Title</th>
             <th>Price</th>
-            <!-- <th>Description</th> -->
             <th>Category</th>
             <th>Image</th>
+            <th></th> -->
+            <th>Username</th>
+            <th>Password</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Date of birth</th>
+            <th>Roles</th>
             <th></th>
-            <!-- <th>Rating</th> -->
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-product>
         <tr>
-            <td>{{product.title}}</td>
+            <!-- <td>{{product.title}}</td>
             <td>{{product.price}}</td>
-            <!-- <td>{{product.description}}</td> -->
             <td>{{product.category}}</td>
-            <td><img src="{{ product.image }}" height="20px"/></td>
+            <td><img src="{{ product.image }}" height="20px"/></td> -->
+
+            <td>{{product.username}}</td>
+            <td>{{product.password}}</td>
+            <td>{{product.email}}</td>
+            <td>{{product.phone}}</td>
+            <td>{{product.address}}</td>
+            <td>{{product.dob}}</td>
+            <td>{{product.roles | }}</td>
+            <!-- <div *ngFor="let data of blockData">{{data.text}} 
+                <span>{{data.role | json}}</span></div> -->
+            <!-- <select multiple name="selectedTechs" [compareWith]="compareTech" [ngModel]="product.roles">
+                <option *ngFor="let tech of allTechnologies" [ngValue]="tech">
+                 {{ tech.techName }}
+                </option>
+              </select> -->
+            <!-- <p-dropdown [options]="cities" [(ngModel)]="product.roles" optionLabel="name" [showClear]="true" placeholder="Select a role">
+            </p-dropdown> -->
             <td>
                 <button
                     pButton

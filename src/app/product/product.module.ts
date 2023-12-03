@@ -10,6 +10,7 @@ import { MessageService } from 'primeng/api';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
 import { FilterProjectComponent } from './filter-project/filter-project.component';
+import { DropdownModule } from 'primeng/dropdown';
 
 
 // import { MessageService } from 'primeng/api';
@@ -34,6 +35,6 @@ import { FilterProjectComponent } from './filter-project/filter-project.componen
   ],
   //global
   //allow any files which is accessing the product module
-  providers: [MessageService, ConfirmationService]
+  providers: [MessageService, ConfirmationService, DropdownModule]
 })
 export class ProductModule { }
