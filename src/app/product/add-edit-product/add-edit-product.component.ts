@@ -12,9 +12,11 @@ export class AddEditProductComponent implements OnInit, OnChanges{
 
   @Input() displayAddEditModal: boolean = true;
   @Input() selectedProduct: any = null;
+  @Input() rolesLst: any;
   @Output() clickClose: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() clickAddEdit: EventEmitter<any> = new EventEmitter<any>();
   modalType = "";
+  selectedRole = '';
 
   productForm = this.fb.group({
     // title: ["", Validators.required],
@@ -43,7 +45,7 @@ export class AddEditProductComponent implements OnInit, OnChanges{
   }
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.rolesLst;
   }
 
   closeModal(){

@@ -18,6 +18,7 @@ export class ProductComponent implements OnInit, OnDestroy{
   subscriptions: Subscription[] = [];
   //individual subscriptions
   pdtSubscription: Subscription = new Subscription();
+  pdtRole: Subscription = new Subscription();
 
   roles: Roles[] = [];
 
@@ -35,6 +36,15 @@ export class ProductComponent implements OnInit, OnDestroy{
       }
     );
     this.subscriptions.push(this.pdtSubscription)
+  }
+
+  getRoleList(){
+    this.pdtRole = this.productService.getRoles().subscribe(
+      response => {
+        this.roles = response;
+      }
+    );
+    this.subscriptions.push(this.pdtRole)
   }
 
   showAddModal(){

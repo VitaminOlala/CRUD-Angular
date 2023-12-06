@@ -11,7 +11,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
 import { FilterProjectComponent } from './filter-project/filter-project.component';
 import { DropdownModule } from 'primeng/dropdown';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // import { MessageService } from 'primeng/api';
 
@@ -35,6 +35,6 @@ import { DropdownModule } from 'primeng/dropdown';
   ],
   //global
   //allow any files which is accessing the product module
-  providers: [MessageService, ConfirmationService, DropdownModule]
+  providers: [MessageService, ConfirmationService, DropdownModule, BrowserAnimationsModule]
 })
 export class ProductModule { }

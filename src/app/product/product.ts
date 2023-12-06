@@ -14,7 +14,7 @@ export interface Product {
     address: string;
     dob: string;
     lastChangePassword: string;
-    roles: Roles[];
+    roles: any;
 }
 
 interface RatingProps{

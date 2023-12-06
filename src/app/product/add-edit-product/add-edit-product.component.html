@@ -70,11 +70,13 @@
                 "
                 >Field is required</small>
         </div>
-
+        
     </form>
+    
     <ng-template pTemplate="footer">
         <p-button icon="pi pi-check" (click)="closeModal()" label="Cancel" styleClass="p-button-text"></p-button>
         <p-button (click)="addEditProduct()" label="{{ modalType }}" [disabled]="productForm.invalid"></p-button>
     </ng-template>
 </p-dialog>
+<p-dropdown [options]="rolesLst" [(ngModel)]="selectedRole" optionLabel="name"></p-dropdown>
 

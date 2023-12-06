@@ -33,16 +33,11 @@
             <td>{{product.phone}}</td>
             <td>{{product.address}}</td>
             <td>{{product.dob}}</td>
-            <td>{{product.roles }}</td>
-            <!-- <div *ngFor="let data of blockData">{{data.text}} 
-                <span>{{data.role | json}}</span></div> -->
-            <!-- <select multiple name="selectedTechs" [compareWith]="compareTech" [ngModel]="product.roles">
-                <option *ngFor="let tech of allTechnologies" [ngValue]="tech">
-                 {{ tech.techName }}
-                </option>
-              </select> -->
-            <!-- <p-dropdown [options]="cities" [(ngModel)]="product.roles" optionLabel="name" [showClear]="true" placeholder="Select a role">
-            </p-dropdown> -->
+            <td>
+                <div *ngFor = "let i of product.roles">
+                    {{i.name}}
+                </div> 
+            </td>
             <td>
                 <button
                     pButton
@@ -69,6 +64,7 @@
 <app-add-edit-product  
 [displayAddEditModal]="displayAddEditModal"
 [selectedProduct]="selectedProduct"
+[rolesLst]="roles"
 (clickClose)="hideAddModal($event)"
 (clickAddEdit)="saveorUpdateProductList($event)">
 </app-add-edit-product>
