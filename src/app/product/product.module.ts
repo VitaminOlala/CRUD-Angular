@@ -28,13 +28,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ButtonModule,
     AddEditProductModule,
     ToastModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    DropdownModule,
+    BrowserAnimationsModule
   ],
   exports: [
     ProductComponent
   ],
   //global
   //allow any files which is accessing the product module
-  providers: [MessageService, ConfirmationService, DropdownModule, BrowserAnimationsModule]
+  providers: [MessageService, ConfirmationService]
 })
 export class ProductModule { }
