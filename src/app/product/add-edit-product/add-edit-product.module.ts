@@ -9,6 +9,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ToastModule } from 'primeng/toast';
+import { FormsModule } from '@angular/forms';
+import { DropdownModule } from 'primeng/dropdown'
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { ToastModule } from 'primeng/toast';
     InputTextModule,
     InputNumberModule,
     InputTextareaModule,
-    ToastModule
+    ToastModule,
+    FormsModule,
+    DropdownModule
   ],
   exports: [AddEditProductComponent]
 

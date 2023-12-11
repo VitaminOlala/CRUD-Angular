@@ -33,19 +33,21 @@ export class ProductComponent implements OnInit, OnDestroy{
     this.pdtSubscription = this.productService.getProducts().subscribe(
       response => {
         this.products = response;
+        console.log(this.products);
       }
     );
     this.subscriptions.push(this.pdtSubscription)
   }
 
-  getRoleList(){
-    this.pdtRole = this.productService.getRoles().subscribe(
-      response => {
-        this.roles = response;
-      }
-    );
-    this.subscriptions.push(this.pdtRole)
-  }
+  // getRoleList1($event : any){
+  //   this.pdtRole = this.productService.getRoles().subscribe(
+  //     response => {
+  //       this.roles = response;
+  //       console.log(this.roles);
+  //     }
+  //   );
+  //   this.subscriptions.push(this.pdtRole)
+  // }
 
   showAddModal(){
     this.displayAddEditModal = true;

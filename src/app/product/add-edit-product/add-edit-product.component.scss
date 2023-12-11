@@ -1,3 +1,7 @@
 .product-form .p-component{
     width: 100%;
 }
+.p-dialog .p-dialog-content  {
+    overflow: scroll;
+    max-height: 100%;
+  }

@@ -2,6 +2,8 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange
 import { FormBuilder, Validators } from '@angular/forms';
 import { ProductService } from '../product.service';
 import { MessageService } from 'primeng/api';
+import { Roles } from '../product';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-add-edit-product',
@@ -12,11 +14,13 @@ export class AddEditProductComponent implements OnInit, OnChanges{
 
   @Input() displayAddEditModal: boolean = true;
   @Input() selectedProduct: any = null;
-  @Input() rolesLst: any;
   @Output() clickClose: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() clickAddEdit: EventEmitter<any> = new EventEmitter<any>();
   modalType = "";
-  selectedRole = '';
+  selectedRole = "";
+  pdtRole: Subscription = new Subscription();
+  subscriptions: Subscription[] = [];
+  roles: Roles[] = [];
 
   productForm = this.fb.group({
     // title: ["", Validators.required],
@@ -27,7 +31,10 @@ export class AddEditProductComponent implements OnInit, OnChanges{
 
     username: ["", Validators.required],
     password: [0, Validators.required],
-    email: ["", Validators.required]
+    email: ["", Validators.required],
+    phone: ["", Validators.required],
+    address: ["", Validators.required],
+    // roles: ["", Validators.required]
 
   });
   constructor(private fb: FormBuilder, private productService: ProductService,
@@ -45,7 +52,17 @@ export class AddEditProductComponent implements OnInit, OnChanges{
   }
 
   ngOnInit(): void {
-    this.rolesLst;
+    this.getRoleList();
+  }
+
+  getRoleList(){
+    this.pdtRole = this.productService.getRoles().subscribe(
+      response => {
+        this.roles = response;
+        console.log(this.roles);
+      }
+    );
+    this.subscriptions.push(this.pdtRole)
   }
 
   closeModal(){

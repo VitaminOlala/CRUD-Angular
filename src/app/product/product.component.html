@@ -1,15 +1,10 @@
 <div class="flex justify-content-between">
-    <h2>Products</h2>
+    <h2>Users</h2>
     <p-button label="Add user" (click)="showAddModal()"></p-button>
 </div>
 <p-table [value]="products" [paginator]="true" [rows]="5">
     <ng-template pTemplate="header">
         <tr>
-            <!-- <th>Title</th>
-            <th>Price</th>
-            <th>Category</th>
-            <th>Image</th>
-            <th></th> -->
             <th>Username</th>
             <th>Password</th>
             <th>Email</th>
@@ -54,7 +49,7 @@
             </td>
         </tr>
     </ng-template>
-    <p-dropdown  optionLabel="name"></p-dropdown>
+    
     <ng-template pTemplate="summary">
         <div class="flex align-items-center justify-content-between">
             In total there are {{products ? products.length : 0 }} products.
@@ -65,7 +60,6 @@
 <app-add-edit-product  
 [displayAddEditModal]="displayAddEditModal"
 [selectedProduct]="selectedProduct"
-[rolesLst]="roles"
 (clickClose)="hideAddModal($event)"
 (clickAddEdit)="saveorUpdateProductList($event)">
 </app-add-edit-product>

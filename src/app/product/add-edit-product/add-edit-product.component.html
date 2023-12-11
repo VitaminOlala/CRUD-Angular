@@ -1,5 +1,13 @@
-<p-dialog header="{{ modalType }} User" [(visible)]="displayAddEditModal" [breakpoints]="{ '960px': '75vw' }" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false" (onHide) = "closeModal()">
-    <form [formGroup]="productForm" class="product-form">
+<p-dialog header="{{ modalType }} User" [(visible)]="displayAddEditModal" 
+[breakpoints]="{ '960px': '75vw' }" [style]="{ width: '50vw' }" 
+[draggable]="false" [resizable]="false"
+
+(onHide) = "closeModal()">
+    <form [formGroup]="productForm" flex layout="column" height="400px" overflow-y="auto" class="product-form">
+        <!-- <div class="field">
+            <label class="block" for="roles">Role</label>
+            <p-dropdown [options]="roles" formControlName="roles" optionLabel="name"></p-dropdown>
+        </div> -->
         <div class="field">
             <label class="block" for="username">Username</label>
             <input type="text" pInputText id="username" formControlName="username" />
@@ -70,7 +78,29 @@
                 "
                 >Field is required</small>
         </div>
-        
+        <div class="field">
+            <label class="block" for="phone">Phone</label>
+            <input type="text" pInputText id="phone" formControlName="phone" />
+            <small
+                class="p-error block"
+                *ngIf="
+                    productForm.controls['phone'].invalid &&
+                    productForm.controls['phone'].dirty
+                "
+                >Field is required</small>
+        </div>
+
+        <div class="field">
+            <label class="block" for="address">Address</label>
+            <input type="text" pInputText id="address" formControlName="address" />
+            <small
+                class="p-error block"
+                *ngIf="
+                    productForm.controls['address'].invalid &&
+                    productForm.controls['address'].dirty
+                "
+                >Field is required</small>
+        </div>
     </form>
     
     <ng-template pTemplate="footer">
