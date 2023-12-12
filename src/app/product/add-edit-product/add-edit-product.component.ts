@@ -21,6 +21,7 @@ export class AddEditProductComponent implements OnInit, OnChanges{
   pdtRole: Subscription = new Subscription();
   subscriptions: Subscription[] = [];
   roles: Roles[] = [];
+  addRole: boolean = true;
 
   productForm = this.fb.group({
     // title: ["", Validators.required],
@@ -33,7 +34,7 @@ export class AddEditProductComponent implements OnInit, OnChanges{
     password: [0, Validators.required],
     email: ["", Validators.required],
     phone: ["", Validators.required],
-    address: ["", Validators.required],
+    address: ["", Validators.required]
     // roles: ["", Validators.required]
 
   });
@@ -45,9 +46,11 @@ export class AddEditProductComponent implements OnInit, OnChanges{
     if(this.selectedProduct){
       this.modalType = 'Edit';
       this.productForm.patchValue(this.selectedProduct);
+      this.addRole = false;
     } else {
       this.productForm.reset();
       this.modalType = 'Add';
+      this.addRole;
     }
   }
 
