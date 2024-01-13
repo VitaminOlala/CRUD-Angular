@@ -19,6 +19,7 @@ export class ProductComponent implements OnInit, OnDestroy{
   //individual subscriptions
   pdtSubscription: Subscription = new Subscription();
   pdtRole: Subscription = new Subscription();
+  displayAddDeleteRoleModal = false;
 
   roles: Roles[] = [];
 
@@ -39,23 +40,29 @@ export class ProductComponent implements OnInit, OnDestroy{
     this.subscriptions.push(this.pdtSubscription)
   }
 
-  // getRoleList1($event : any){
-  //   this.pdtRole = this.productService.getRoles().subscribe(
-  //     response => {
-  //       this.roles = response;
-  //       console.log(this.roles);
-  //     }
-  //   );
-  //   this.subscriptions.push(this.pdtRole)
-  // }
+  getRoleList(){
+    this.pdtRole = this.productService.getRoles().subscribe(
+      response => {
+        this.roles = response;
+        console.log(this.roles);
+      }
+    );
+    this.subscriptions.push(this.pdtRole)
+  }
 
   showAddModal(){
     this.displayAddEditModal = true;
     this.selectedProduct = null;
   }
   
+  showAddDeleteRoleModal(){
+    this.displayAddDeleteRoleModal = true;
+    // this.selectedProduct = null;
+  }
+
   hideAddModal(isClosed: boolean){
     this.displayAddEditModal = !isClosed;
+    this.displayAddDeleteRoleModal = !isClosed;
   }
 
   saveorUpdateProductList(newData: any){
@@ -68,12 +75,20 @@ export class ProductComponent implements OnInit, OnDestroy{
     
   }
 
+  saveRole(newData: any){
+      const productIndex = this.products.findIndex(data => data.id === newData.id)
+      this.products[productIndex] = newData;
+
+      this.products.unshift(newRole);
+  
+  }
+
   showEditModal(product: Product){
     this.displayAddEditModal = true;
     this.selectedProduct = product;
   }
 
-  deleteProduct (product: Product){
+  deleteProduct(product: Product){
     this.confirmationService.confirm({
       message: 'Are you sure that you want to delete proceed?',
       accept: () => {

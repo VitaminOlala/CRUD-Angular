@@ -44,9 +44,17 @@
                     pButton
                     icon="pi pi-trash"
                     class="p-button-rounded p-button-warning"
-                    (click)="deleteProduct (product)"
-            ></button>
+                    (click)="deleteProduct(product)"
+                ></button>
+                
             </td>
+            <td>
+                <button                     pButton
+                icon="pi pi-pencil"
+                class="p-button-rounded p-button-success mr-2" label="Update role" (click)="showAddDeleteRoleModal()"></button>
+
+            </td>
+            
         </tr>
     </ng-template>
     
@@ -63,6 +71,11 @@
 (clickClose)="hideAddModal($event)"
 (clickAddEdit)="saveorUpdateProductList($event)">
 </app-add-edit-product>
+
+<app-add-delete-role  
+[displayAddDeleteRoleModal]="displayAddDeleteRoleModal"
+(clickClose)="hideAddModal($event)">
+</app-add-delete-role>
 
 <p-confirmDialog header="Delete"></p-confirmDialog>
 <p-toast position="bottom-right"></p-toast>

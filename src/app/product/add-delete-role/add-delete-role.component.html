@@ -1,25 +1,29 @@
-<!-- <h1 mat-dialog-title>Update User</h1>
-<form [formGroup]="registerform" (ngSubmit)="UpdateUser()">
-    <div mat-dialog-content>
-
-        <mat-form-field>
-            <mat-label>Role</mat-label>
-            <mat-select formControlName="role">
-                <mat-option value=''>Select Role</mat-option>
-                <mat-option *ngFor="let item of rolelist" [value]="item.code">
-                    {{item.name}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-
-        <section class="example-section">
-            <br>
-            <mat-checkbox  formControlName="isactive" class="example-margin">Is Active</mat-checkbox>
-        </section>
-
+<p-dialog header="Update Role" [(visible)]="displayAddDeleteRoleModal" 
+[breakpoints]="{ '960px': '75vw' }" [style]="{ width: '50vw' ,height: '30vw'}" 
+[draggable]="false" [resizable]="false"
+(onHide) = "closeModal1()">
+<form flex layout="column" height="400px" overflow-y="auto" class="product-form">
+    <div class="field">
+        <p-dropdown [options]="roles" formControlName="roles" optionLabel="name" placeholder="Select a role">
+            <!-- <ng-template pTemplate="selectedItem">
+                <div class="flex align-items-center gap-2" *ngIf="selectedCountry">
+                    <div>{{ selectedCountry.name }}</div>
+                </div>
+            </ng-template>
+            <ng-template let-country pTemplate="item">
+                <div class="flex align-items-center gap-2">
+                    <div>{{ country.name }}</div>
+                </div>
+            </ng-template> -->
+        </p-dropdown>
     </div>
-    <div mat-dialog-actions>
-        <button type="submit" mat-raised-button color="primary" cdkFocusInitial>Save</button>
-        <button mat-raised-button color="warn" mat-dialog-close>Close</button>
-    </div>
-</form> -->
+
+</form>
+
+    <ng-template pTemplate="footer">
+        <p-button icon="pi pi-check" (click)="closeModal1()" label="Cancel" styleClass="p-button-text"></p-button>
+        <p-button (click)="addEditProduct()" label="Add role"></p-button>
+    </ng-template>
+
+</p-dialog>
+

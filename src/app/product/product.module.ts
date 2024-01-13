@@ -12,6 +12,7 @@ import { ConfirmationService } from 'primeng/api';
 import { FilterProjectComponent } from './filter-project/filter-project.component';
 import { DropdownModule } from 'primeng/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AddDeleteRoleModule } from './add-delete-role/add-delete-role.module';
 
 // import { MessageService } from 'primeng/api';
 
@@ -27,6 +28,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     TableModule,
     ButtonModule,
     AddEditProductModule,
+    AddDeleteRoleModule,
     ToastModule,
     ConfirmDialogModule,
     DropdownModule,

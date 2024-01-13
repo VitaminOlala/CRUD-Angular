@@ -19,6 +19,10 @@ export class ProductService {
     // return this.http.get<Product[]>('https://fakestoreapi.com/products?sort=desc');
     return this.http.get<Roles[]>('http://localhost:8080/account/roles/getAll');
   }
+
+  addRole(postData: any, selectedPdt: any, selectedRole: any){
+    return this.http.put(`http://localhost:8080/account/users/${selectedPdt.id}/${selectedRole.id}`, postData);
+  }
   
   addEditProduct(postData: any, selectedPdt: any){
     if(!selectedPdt){
