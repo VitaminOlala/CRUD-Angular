@@ -14,10 +14,12 @@ export class AddEditProductComponent implements OnInit, OnChanges{
 
   @Input() displayAddEditModal: boolean = true;
   @Input() selectedProduct: any = null;
+  @Input() selectedRole: any = null;
   @Output() clickClose: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() clickAddEdit: EventEmitter<any> = new EventEmitter<any>();
+  @Output() clickAddRole: EventEmitter<any> = new EventEmitter<any>();
   modalType = "";
-  selectedRole = "";
+  // selectedRole = "";
   pdtRole: Subscription = new Subscription();
   subscriptions: Subscription[] = [];
   roles: Roles[] = [];
@@ -68,6 +70,22 @@ export class AddEditProductComponent implements OnInit, OnChanges{
     this.productService.addEditProduct(this.productForm.value, this.selectedProduct).subscribe(
       response => {
         this.clickAddEdit.emit(response);
+        this.closeModal();
+        this.messageService.add({severity: 'success', summary: 'Success', detail:'Product added' });
+      
+      },
+      error => {
+        this.messageService.add({severity: 'error', summary: 'Error', detail:error });
+        console.log('Error occured')
+      }
+    )
+
+  }
+
+  addRoles(){
+    this.productService.addRole(this.productForm.value, this.selectedProduct, this.selectedRole).subscribe(
+      response => {
+        this.clickAddRole.emit(response);
         this.closeModal();
         this.messageService.add({severity: 'success', summary: 'Success', detail:'Product added' });
       

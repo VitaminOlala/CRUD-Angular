@@ -74,7 +74,10 @@
 
 <app-add-delete-role  
 [displayAddDeleteRoleModal]="displayAddDeleteRoleModal"
-(clickClose)="hideAddModal($event)">
+(clickClose)="hideAddModal($event)"
+(clickAddRole)="saveRole($event)">
+</app-add-delete-role>
+
 </app-add-delete-role>
 
 <p-confirmDialog header="Delete"></p-confirmDialog>
