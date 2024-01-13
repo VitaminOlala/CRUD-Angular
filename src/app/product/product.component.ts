@@ -79,7 +79,7 @@ export class ProductComponent implements OnInit, OnDestroy{
       const productIndex = this.products.findIndex(data => data.id === newData.id)
       this.products[productIndex] = newData;
 
-      this.products.unshift(newRole);
+      this.products.unshift(newData);
   
   }
 
